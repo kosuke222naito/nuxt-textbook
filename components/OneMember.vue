@@ -1,23 +1,16 @@
 <script setup lang="ts">
+import type { Member } from "~/interfaces";
+
 interface Props {
   id: number;
-  name: string;
-  email: string;
-  points: number;
-  note?: string;
 }
 
-const { id, name, email, points, note = "--" } = defineProps<Props>();
+const { id } = defineProps<Props>();
 
-interface Emits {
-  (event: "incrementPoints", id: number): void;
-}
+const memberList = useState<Map<number, Member>>("memberList");
+const { name, email, points, note = "" } = memberList.value.get(id)!;
 
-const emit = defineEmits<Emits>();
-
-const pointUp = (): void => {
-  emit("incrementPoints", id);
-};
+const pointsRef = ref(points);
 </script>
 
 <template>
@@ -31,11 +24,11 @@ const pointUp = (): void => {
       <dt>メールアドレス</dt>
       <dd>{{ email }}</dd>
       <dt>保有ポイント</dt>
-      <dd>{{ points }}</dd>
+      <dd>{{ pointsRef }}</dd>
       <dt>備考</dt>
       <dd>{{ note }}</dd>
     </dl>
-    <button @click="pointUp">ポイント加算</button>
+    <button @click="pointsRef++">ポイント加算</button>
   </section>
 </template>
 

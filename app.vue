@@ -1,11 +1,6 @@
 <script setup lang="ts">
-interface Member {
-  id: number;
-  name: string;
-  email: string;
-  points: number;
-  note?: string;
-}
+import type { Member } from "~/interfaces";
+import TheBaseSection from "./components/TheBaseSection.vue";
 
 const memberListInit = new Map<number, Member>();
 
@@ -24,35 +19,9 @@ memberListInit.set(47783, {
   note: "ふがふが",
 });
 
-const memberList = ref(memberListInit);
-
-const totalPoints = computed(() => {
-  return [...memberList.value.values()].reduce((sum, member) => {
-    return sum + member.points;
-  }, 0);
-});
-
-const onIncrementPoints = (id: number): void => {
-  const member = memberList.value.get(id);
-  if (member != undefined) {
-    member.points++;
-  }
-};
+useState<Map<number, Member>>("memberList", () => memberListInit);
 </script>
 
 <template>
-  <section>
-    <h1>会員リスト</h1>
-    <p>全会員の合計保有ポイント: {{ totalPoints }}</p>
-    <OneMember
-      v-for="[id, { name, email, points, note }] in memberList"
-      :id
-      :key="id"
-      :name
-      :email
-      :points
-      :note
-      @incrementPoints="onIncrementPoints"
-    />
-  </section>
+  <TheBaseSection />
 </template>
