@@ -10,7 +10,7 @@ interface Props {
 const { id, name, email, points, note = "--" } = defineProps<Props>();
 
 interface Emits {
-  (e: "incrementPoints", id: number): void;
+  (event: "incrementPoints", id: number): void;
 }
 
 const emit = defineEmits<Emits>();
