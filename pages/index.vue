@@ -6,6 +6,8 @@
     </ul>
   </nav>
   <section>
-    <p>会員管理はこちら</p>
+    <p>
+      <NuxtLink :to="{ name: 'member-list' }"> 会員管理はこちら </NuxtLink>
+    </p>
   </section>
 </template>
