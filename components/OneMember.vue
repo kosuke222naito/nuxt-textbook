@@ -8,10 +8,15 @@ interface Props {
 }
 
 const { id, name, email, points, note = "--" } = defineProps<Props>();
-const pointsDisplay = ref(points);
+
+interface Emits {
+  (e: "incrementPoints", id: number): void;
+}
+
+const emit = defineEmits<Emits>();
 
 const pointUp = (): void => {
-  pointsDisplay.value++;
+  emit("incrementPoints", id);
 };
 </script>
 
@@ -26,7 +31,7 @@ const pointUp = (): void => {
       <dt>メールアドレス</dt>
       <dd>{{ email }}</dd>
       <dt>保有ポイント</dt>
-      <dd>{{ pointsDisplay }}</dd>
+      <dd>{{ points }}</dd>
       <dt>備考</dt>
       <dd>{{ note }}</dd>
     </dl>

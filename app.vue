@@ -14,7 +14,6 @@ memberListInit.set(33456, {
   name: "田中太郎",
   email: "taro@example.com",
   points: 30,
-  note: "ほげほげ",
 });
 
 memberListInit.set(47783, {
@@ -32,6 +31,13 @@ const totalPoints = computed(() => {
     return sum + member.points;
   }, 0);
 });
+
+const onIncrementPoints = (id: number): void => {
+  const member = memberList.value.get(id);
+  if (member != undefined) {
+    member.points++;
+  }
+};
 </script>
 
 <template>
@@ -46,6 +52,7 @@ const totalPoints = computed(() => {
       :email
       :points
       :note
+      @incrementPoints="onIncrementPoints"
     />
   </section>
 </template>
