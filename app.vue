@@ -26,6 +26,7 @@ useState<Map<number, Member>>("memberList", () => memberListInit);
     <h1>ルーティングサンプル</h1>
     <main>
       <NuxtPage />
+      <p>Router Params: {{ $route.params }}</p>
     </main>
   </header>
 </template>
