@@ -30,7 +30,7 @@ useState<Map<number, Member>>("memberList", () => memberListInit);
   </header>
 </template>
 
-<style scoped>
+<style>
 main {
   border: blue 1px solid;
   padding: 10px;
