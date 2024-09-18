@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import OneMember from "./components/OneMember.vue";
-
 interface Member {
   id: number;
   name: string;
