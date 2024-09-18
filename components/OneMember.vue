@@ -8,27 +8,29 @@ interface Props {
 const { id } = defineProps<Props>();
 
 const memberList = useState<Map<number, Member>>("memberList");
-const { name, email, points, note = "" } = memberList.value.get(id)!;
+const member = memberList.value.get(id)!;
 
-const pointsRef = ref(points);
+const pointsUp = (): void => {
+  member.points++;
+};
 </script>
 
 <template>
   <section class="box">
-    <h4>{{ name }}さんの情報</h4>
+    <h4>{{ member.name }}さんの情報</h4>
     <dl>
       <dt>ID</dt>
       <dd>{{ id }}</dd>
       <dt>名前</dt>
-      <dd>{{ name }}</dd>
+      <dd>{{ member.name }}</dd>
       <dt>メールアドレス</dt>
-      <dd>{{ email }}</dd>
+      <dd>{{ member.email }}</dd>
       <dt>保有ポイント</dt>
-      <dd>{{ pointsRef }}</dd>
+      <dd>{{ member.points }}</dd>
       <dt>備考</dt>
-      <dd>{{ note }}</dd>
+      <dd>{{ member.note ? member.note : "--" }}</dd>
     </dl>
-    <button @click="pointsRef++">ポイント加算</button>
+    <button @click="pointsUp">ポイント加算</button>
   </section>
 </template>
 
