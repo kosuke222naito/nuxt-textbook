@@ -22,13 +22,9 @@ useState<Map<number, Member>>("memberList", () => memberListInit);
 </script>
 
 <template>
-  <header>
-    <h1>ルーティングサンプル</h1>
-    <main>
-      <NuxtPage />
-      <p>Router Params: {{ $route.params }}</p>
-    </main>
-  </header>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <style>
