@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { Member } from "~/interfaces";
 
+const SITE_TITLE = "ヘッダ変更サンプル";
+
+useHead({ title: SITE_TITLE });
+
 const memberListInit = new Map<number, Member>();
 
 memberListInit.set(33456, {
