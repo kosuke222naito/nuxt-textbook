@@ -12,7 +12,7 @@ const member = computed((): Member => {
 
 <template>
   <section>
-    <h2>会員詳細情報</h2>
+    <h3>会員詳細情報</h3>
     <dl>
       <dt>ID</dt>
       <dd>{{ member.id }}</dd>

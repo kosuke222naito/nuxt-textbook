@@ -20,7 +20,7 @@ const onAdd = (): void => {
 
 <template>
   <section>
-    <h2>会員情報追加</h2>
+    <h3>会員情報追加</h3>
     <p>情報を入力し、登録ボタンをクリックしてください</p>
     <form @submit.prevent="onAdd">
       <dl>
