@@ -14,15 +14,14 @@ const memberList = useState<Map<number, Member>>("memberList");
   </nav>
   <section>
     <h2>会員リスト</h2>
-    <p><NuxtLink :to="{ name: 'member-add' }">新規登録</NuxtLink></p>
-    <section>
-      <ul>
-        <li v-for="[id, { name }] in memberList" :key="id">
-          <NuxtLink :to="{ name: 'member-id', params: { id } }">
-            {{ id }}: {{ name }}
-          </NuxtLink>
-        </li>
-      </ul>
-    </section>
+    <p><NuxtLink :to="{ name: 'member-list-add' }">新規登録</NuxtLink></p>
+    <ul>
+      <li v-for="[id, { name }] in memberList" :key="id">
+        <NuxtLink :to="{ name: 'member-list-id', params: { id } }">
+          {{ id }}: {{ name }}
+        </NuxtLink>
+      </li>
+    </ul>
   </section>
+  <NuxtPage />
 </template>

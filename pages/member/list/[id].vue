@@ -11,13 +11,6 @@ const member = computed((): Member => {
 </script>
 
 <template>
-  <h1>会員管理</h1>
-  <nav id="breadcrumbs">
-    <ul>
-      <li><NuxtLink :to="{ name: 'member-list' }">会員リスト</NuxtLink></li>
-      <li>会員詳細情報</li>
-    </ul>
-  </nav>
   <section>
     <h2>会員詳細情報</h2>
     <dl>
