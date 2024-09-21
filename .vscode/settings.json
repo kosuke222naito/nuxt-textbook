@@ -1,4 +1,9 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "cSpell.enabled": false,
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.nuxt": true
+  }
 }
