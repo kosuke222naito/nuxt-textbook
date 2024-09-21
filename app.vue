@@ -3,7 +3,14 @@ import type { Member } from "~/interfaces";
 
 const SITE_TITLE = "ヘッダ変更サンプル";
 
-useHead({ title: SITE_TITLE });
+useHead({
+  titleTemplate: (titleChunk: string | undefined): string => {
+    if (titleChunk != undefined) {
+      return `${titleChunk} | ${SITE_TITLE}`;
+    }
+    return SITE_TITLE;
+  },
+});
 
 const memberListInit = new Map<number, Member>();
 
