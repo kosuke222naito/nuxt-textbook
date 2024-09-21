@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { Member } from "~/interfaces";
 
+const PAGE_TITLE = "会員情報追加";
+
+useHead({ title: PAGE_TITLE });
+
 const router = useRouter();
 
 const memberList = useState<Map<number, Member>>("memberList");
@@ -20,7 +24,7 @@ const onAdd = (): void => {
 
 <template>
   <section>
-    <h3>会員情報追加</h3>
+    <h3>{{ PAGE_TITLE }}</h3>
     <p>情報を入力し、登録ボタンをクリックしてください</p>
     <form @submit.prevent="onAdd">
       <dl>

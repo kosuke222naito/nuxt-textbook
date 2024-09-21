@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import type { Member } from "~/interfaces";
 
+const PAGE_TITLE = "会員詳細情報";
+
+definePageMeta({ layout: "member" });
+useHead({ title: PAGE_TITLE });
+
 const route = useRoute();
 
 const memberList = useState<Map<number, Member>>("memberList");
@@ -12,7 +17,7 @@ const member = computed((): Member => {
 
 <template>
   <section>
-    <h3>会員詳細情報</h3>
+    <h3>{{ PAGE_TITLE }}</h3>
     <dl>
       <dt>ID</dt>
       <dd>{{ member.id }}</dd>
